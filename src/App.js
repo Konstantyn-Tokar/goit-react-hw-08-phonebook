@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, Suspense, lazy } from "react";
 import { Switch } from "react-router-dom";
+import Loader from "react-loader-spinner";
+import Container from "react-bootstrap/Container";
 
 import { fetchCurrentUser } from "./redux/auth/auth-operations";
 import { getIsRefreshing } from "./redux/auth/auth-selectors";
@@ -28,7 +30,19 @@ function App() {
     !isRefreshing && (
       <>
         <AppBar />
-        <Suspense fallback={<p>Loadind</p>}>
+        <Suspense
+          fallback={
+            <Container className="p-5">
+              <Loader
+                className="loader"
+                type="Oval"
+                color="#5C636A"
+                height={60}
+                width={60}
+              />
+            </Container>
+          }
+        >
           <Switch>
             <PublicRoute exact path="/">
               <HomeView />

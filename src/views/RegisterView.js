@@ -80,7 +80,7 @@ export default function RegisterView() {
             />
           </Form.Group>
           <Button type="submit" variant="outline-secondary" className="mx-6">
-            Register
+            Registration
           </Button>
         </Form>
       </div>

@@ -31,7 +31,7 @@ export default function LoginView() {
   return (
     <Container className="p-5">
       <div className="view_container">
-        <h1>Please, login</h1>
+        <h1>Login page</h1>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formPlaintextEmail">
             <Form.Label column sm="2">

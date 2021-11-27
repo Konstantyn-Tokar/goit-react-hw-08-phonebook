@@ -1,25 +1,12 @@
 import React from "react";
-
-const styles = {
-  container: {
-    minHeight: "calc(100vh - 50px)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: "center",
-  },
-};
+import Container from "react-bootstrap/Container";
 
 const HomeView = () => (
-  <div style={styles.container}>
-    <h1 style={styles.title}>Welcome to the site </h1>
-    <p>to get started on the site, login to your account or register</p>
-  </div>
+  <Container className="p-5">
+    <div className="home_container">
+      <h1 className="title-home">Welcome to the site</h1>
+    </div>
+  </Container>
 );
 
 export default HomeView;

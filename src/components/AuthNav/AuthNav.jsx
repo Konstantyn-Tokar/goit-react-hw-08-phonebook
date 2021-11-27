@@ -9,14 +9,14 @@ export default function AuthNav() {
         className="nav-link-my"
         activeClassName="nav-link-active-my"
       >
-        Регистрация
+        Registration
       </NavLink>
       <NavLink
         to="/login"
         className="nav-link-my"
         activeClassName="nav-link-active-my"
       >
-        Логин
+        Login
       </NavLink>
     </>
   );

@@ -20,6 +20,12 @@
   margin: 0 auto;
 }
 
+.home_container {
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .nav-link-my {
   display: inline-block;
   text-decoration: none;
@@ -35,4 +41,28 @@
 
 .nav-link-my:hover {
   color: rgb(6, 218, 255);
+}
+
+.title-home {
+  font-weight: 500;
+  font-size: 48;
+  text-align: center;
+}
+
+.welcome {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+}
+
+.avatar {
+  margin-right: 5px;
+}
+
+.container-user {
+  display: flex;
+  align-items: center;
 }

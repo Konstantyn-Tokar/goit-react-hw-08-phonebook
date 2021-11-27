@@ -26,6 +26,9 @@ export default function RegisterView() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (name === "" || email === "" || password === "") {
+      return;
+    }
     dispatch(register({ name, email, password }));
     setName("");
     setEmail("");

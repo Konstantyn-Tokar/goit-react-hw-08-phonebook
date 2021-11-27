@@ -14,3 +14,25 @@
 .form-control-my {
   margin-bottom: 5px;
 }
+
+.view_container {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.nav-link-my {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+}
+
+.nav-link-active-my {
+  color: rgb(6, 218, 255);
+}
+
+.nav-link-my:hover {
+  color: rgb(6, 218, 255);
+}

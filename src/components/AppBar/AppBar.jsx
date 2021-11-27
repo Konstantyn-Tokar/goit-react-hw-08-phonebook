@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
+import { NavLink } from "react-router-dom";
+
 import { FcNook } from "react-icons/fc";
 import UserMenu from "../UserMenu";
 import AuthNav from "../AuthNav";
@@ -15,7 +17,23 @@ export default function AppBar() {
       <Container>
         <Navbar.Brand className="navBar">
           <FcNook className="navBar-logo" />
-          Phonebook
+          <NavLink
+            exact
+            to="/"
+            className="nav-link-my"
+            activeClassName="nav-link-active-my"
+          >
+            Phonebook
+          </NavLink>
+          {isLoggedIn && (
+            <NavLink
+              to="/contacts"
+              className="nav-link-my"
+              activeClassName="nav-link-active-my"
+            >
+              Contacts
+            </NavLink>
+          )}
         </Navbar.Brand>
         <Navbar.Brand className="navBar">
           {isLoggedIn ? <UserMenu /> : <AuthNav />}

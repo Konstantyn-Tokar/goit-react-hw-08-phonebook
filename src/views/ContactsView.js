@@ -7,8 +7,6 @@ import ContactList from "../components/ContactList";
 import Filter from "../components/Filter";
 import Loader from "react-loader-spinner";
 import { getLoading } from "../redux/contacts/contacts-selectors";
-// import RegisterView from "./RegisterView";
-// import LoginView from "./LoginView";
 
 export default function TodosView() {
   const loader = useSelector(getLoading);
@@ -34,8 +32,6 @@ export default function TodosView() {
           <ContactList />
         </Col>
       </Row>
-      {/* <RegisterView />
-      <LoginView /> */}
     </Container>
   );
 }

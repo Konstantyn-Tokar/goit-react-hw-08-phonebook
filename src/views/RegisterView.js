@@ -1,17 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../redux/auth/auth-operations";
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: 15,
-  },
-};
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 export default function RegisterView() {
   const dispatch = useDispatch();
@@ -41,50 +33,57 @@ export default function RegisterView() {
   };
 
   return (
-    <div>
-      <h1>Страница регистрации</h1>
+    <Container className="p-5">
+      <div className="view_container">
+        <h1>Registration page</h1>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formPlaintextName">
+            <Form.Label column sm="2">
+              Name
+            </Form.Label>
+            <Form.Control
+              type="text"
+              name="name"
+              minLength="3"
+              maxLength="10"
+              value={name}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Имя
-          <input
-            type="text"
-            name="name"
-            minLength="3"
-            maxLength="10"
-            value={name}
-            onChange={handleChange}
-          />
-        </label>
+          <Form.Group className="mb-3" controlId="formPlaintextEmail">
+            <Form.Label column sm="2">
+              Email
+            </Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              multiple
+              minLength="5"
+              maxLength="30"
+              value={email}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-        <label style={styles.label}>
-          Почта
-          <input
-            type="email"
-            name="email"
-            multiple
-            placeholder="sophie@example.com"
-            minLength="10"
-            maxLength="30"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label style={styles.label}>
-          Пароль
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            minLength="7"
-            maxLength="15"
-          />
-        </label>
-
-        <button type="submit">Зарегистрироваться</button>
-      </form>
-    </div>
+          <Form.Group className="mb-3" controlId="formPlaintextPassword">
+            <Form.Label column sm="2">
+              Password
+            </Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              minLength="7"
+              maxLength="15"
+            />
+          </Form.Group>
+          <Button type="submit" variant="outline-secondary" className="mx-6">
+            Register
+          </Button>
+        </Form>
+      </div>
+    </Container>
   );
 }

@@ -1,17 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "../redux/auth/auth-operations";
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: 15,
-  },
-};
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 export default function LoginView() {
   const dispatch = useDispatch();
@@ -37,32 +29,38 @@ export default function LoginView() {
   };
 
   return (
-    <div>
-      <h1>Страница логина</h1>
+    <Container className="p-5">
+      <div className="view_container">
+        <h1>Please, login</h1>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formPlaintextEmail">
+            <Form.Label column sm="2">
+              Email
+            </Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Почта
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label style={styles.label}>
-          Пароль
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-
-        <button type="submit">Войти</button>
-      </form>
-    </div>
+          <Form.Group className="mb-3" controlId="formPlaintextPassword">
+            <Form.Label column sm="2">
+              Password
+            </Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Button type="submit" variant="outline-secondary" className="mx-6">
+            log in
+          </Button>
+        </Form>
+      </div>
+    </Container>
   );
 }

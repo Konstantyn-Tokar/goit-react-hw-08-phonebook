@@ -8,7 +8,6 @@ import { getItems } from "../../redux/contacts/contacts-selectors";
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumder] = useState("");
-  console.log("NAME", name);
   const dispatch = useDispatch();
   const сontacts = useSelector(getItems);
 

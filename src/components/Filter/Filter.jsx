@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { handelChangeFilter } from "../../redux/action";
+import { handelChangeFilter } from "../../redux/contacts/contacts-action";
+import { getFilter } from "../../redux/contacts/contacts-selectors";
 import Form from "react-bootstrap/Form";
 
 export default function Filter() {
-  const filter = useSelector(({ contacts }) => contacts.filter);
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
   return (

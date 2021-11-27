@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/operations";
+import { addContact } from "../../redux/contacts/contacts-operations.js";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { getItems } from "../../redux/contacts/contacts-selectors";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumder] = useState("");
+  console.log("NAME", name);
   const dispatch = useDispatch();
-  const сontacts = useSelector((state) => state.contacts.items);
+  const сontacts = useSelector(getItems);
 
   const handelChange = (e) => {
     const { name, value } = e.target;

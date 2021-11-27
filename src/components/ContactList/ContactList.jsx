@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteContact, fatchContact } from "../../redux/operations";
-import { getFilterContacts } from "../../helpers/filter";
+import {
+  deleteContact,
+  fatchContact,
+} from "../../redux/contacts/contacts-operations.js";
+import { getFilterContacts } from "../../redux/contacts/contacts-selectors";
+import { toUpperCaseFirstLetter } from "../../helpers/firstLetterUpper";
 
 import ListGroup from "react-bootstrap/ListGroup";
 import { BsTrash } from "react-icons/bs";
@@ -9,10 +13,7 @@ import { BsTrash } from "react-icons/bs";
 import s from "./ContactList.module.css";
 
 export default function ContactList() {
-  const contacts = useSelector(({ contacts: { items, filter } }) =>
-    getFilterContacts(items, filter)
-  );
-
+  const contacts = useSelector(getFilterContacts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +26,8 @@ export default function ContactList() {
         <ListGroup.Item as="li" className={s.item} key={id}>
           <div>
             <p className={s.text}>
-              Name: <span className={s.text_d}>{name}</span>
+              Name:{" "}
+              <span className={s.text_d}>{toUpperCaseFirstLetter(name)}</span>
             </p>
             <p className={s.text}>
               Number: <span className={s.text_d}>{number}</span>
